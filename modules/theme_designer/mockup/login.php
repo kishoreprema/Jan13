@@ -67,6 +67,7 @@ var baseurl = '';
 <?php
 $logofile = "/var/www/html/themes/".$_REQUEST['theme_name']."/images/issabel_logo_mini.png";
 $logo = "themes/".$_REQUEST['theme_name']."/images/issabel_logo_mini.png";
+$logo = htmlspecialchars($logo,ENT_QUOTES,'UTF-8');
 if(is_file($logofile)) {
 			echo "<img src='$logo' width='200' alt='Issabel logo' />";
 } else {

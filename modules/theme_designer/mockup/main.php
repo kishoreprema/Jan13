@@ -72,6 +72,7 @@ body {
 <?php
 $logofile = "/var/www/html/themes/".$_REQUEST['theme_name']."/images/issabel_logo_mini2.png";
 $logo = "themes/".$_REQUEST['theme_name']."/images/issabel_logo_mini2.png";
+$logo = htmlspecialchars($logo,ENT_QUOTES,'UTF-8');
 if(is_file($logofile)) {
                         echo "<img src='$logo' width='120' />";
 } else {

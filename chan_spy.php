@@ -18,7 +18,7 @@ if( isset($_GET["spyexten"]) and $_GET["spyexten"] != "" ) {
         $spyext = $_GET["spyexten"];
         $exten = $_GET["exten"];
         $res = $ami->Originate("SIP/{$exten}","130","from-internal","1",NULL,"Agent Spy","SPY_CHAN={$spyext}",NULL,NULL,NULL);
-        echo $res["Response"];
+        echo  htmlspecialchars($res["Response"],ENT_QUOTES, 'UTF-8'); 
 
 }
 else
