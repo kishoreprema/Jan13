@@ -10,7 +10,9 @@ $partes = preg_split("/,/",$addons);
 
 foreach($partes as $addon) {
     foreach($respuesta as $linea) {
-        if(preg_match("/$addon/",$linea)) {
+        $filter_data = filter_var($addon, FILTER_UNSAFE_RAW);
+        //if(preg_match("/$addon/",$linea)) {
+          if(preg_match("/$filter_data/",$linea)) {
             list($rawname,$serial,$expires) = preg_split("/\s+/",$linea);
             if($expires<>'') {
                 $date       = new DateTime();
