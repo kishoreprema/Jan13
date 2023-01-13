@@ -802,7 +802,9 @@ function save_adress_book($smarty, $module_name, $local_templates_dir, $pDB, $pD
                             return new_adress_book($smarty, $module_name, $local_templates_dir, $pDB, $pDB_2, $arrConf, $dsn_agi_manager, $dsnAsterisk);
                     }
                     //realizar acciones
-                    $rname = rename($ruta_archivo, $renameFile);
+		    $old_fname = filter_var($ruta_archivo, FILTER_SANITIZE_STRING);
+		    $new_fname = filter_var($renameFile, FILTER_SANITIZE_STRING);
+                    $rname = rename($old_fname, $new_fname);
                     if(!$rname){
                         $smarty->assign("mb_title", _tr("ERROR"));
                         $smarty->assign("mb_message", _tr("Error to Upload") ." : ". $pictureUpload);
