@@ -370,7 +370,9 @@ function downloadRecording($smarty, $module_name, $pDB)
     }
 
     // Mandar el archivo
-    $fp = fopen(htmlspecialchars($path[0],ENT_QUOTES), 'rb');
+    $dir = dirname($path[0]);
+    $file = basename($path[0]);
+    $fp = fopen("{$dir}/{$file}",'rb');
     if (!$fp) {
         Header('HTTP/1.1 503 Internal Server Error');
         return 'Failed to open file';
