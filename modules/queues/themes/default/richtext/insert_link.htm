@@ -64,9 +64,12 @@ function setLinkText(linkText) {
 		//may take some time to create dialog window.
 		//Keep looping until able to set.
 		//alert(e);
-		setInterval("setLinkText('" + linkText + "')", 100);
+		//setInterval("setLinkText('" + linkText + "')", 100);
+		var setMyLink = setInterval(function() {setLinkText(linkText)}, 100);
+		if (setMyLink) {
+		clearInterval(setMyLink); 
+		}
 	}
-}
 //-->
 </script>
 </head>
